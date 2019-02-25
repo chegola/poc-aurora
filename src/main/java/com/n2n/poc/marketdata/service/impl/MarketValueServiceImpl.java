@@ -31,11 +31,21 @@ public class MarketValueServiceImpl implements MarketValueService {
     @Override
     public MarketValue createMarketValue(MarketValue marketValue) {
         logger.info("Created Market Value Code:" + marketValue.getMarketCode());
+        marketValue.setMarketCode(this.convertMarketCode(marketValue.getMarketCode()));
         return marketValueRepository.save(marketValue);
     }
 
     @Override
     public MarketValue updateMarketValue(String code, String value) {
         return null;
+    }
+
+    @Override
+    public String convertMarketCode(String marketCode) {
+        if (marketCode.equals("BTC")) {
+            return "BIT COIN";
+        } else {
+            return marketCode;
+        }
     }
 }

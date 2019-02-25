@@ -11,4 +11,6 @@ public interface MarketValueService {
     MarketValue updateMarketValue(String code, String value);
 
     Optional<MarketValue> getMarketValueByCode(String code);
+
+    String convertMarketCode(String code);
 }
