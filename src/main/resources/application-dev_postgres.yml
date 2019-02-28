@@ -1,0 +1,16 @@
+spring:
+    profiles:
+        active: dev_postgres
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/n2ndb
+        username: postgres
+        password: 123456
+        hikari:
+          auto-commit: false
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+        database: POSTGRESQL
+        show-sql: true
+        properties:
+            hibernate.jdbc.lob.non_contextual_creation: true
