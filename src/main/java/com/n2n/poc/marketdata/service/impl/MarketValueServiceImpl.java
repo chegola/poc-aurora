@@ -43,7 +43,7 @@ public class MarketValueServiceImpl implements MarketValueService {
     @Override
     public String convertMarketCode(String marketCode) {
         if (marketCode.equals("BTC")) {
-            return "BIT COIN1";
+            return "BIT COIN";
         } else {
             return marketCode;
         }
