@@ -12,11 +12,6 @@ stages:
     - deploy
 
 
-before_script:
-    - export MAVEN_USER_HOME=`pwd`/.maven
-    - ./mvnw com.github.eirslett:frontend-maven-plugin:install-node-and-npm -DnodeVersion=v10.14.1 -DnpmVersion=6.4.1 -Dmaven.repo.local=$MAVEN_USER_HOME
-    - ./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dmaven.repo.local=$MAVEN_USER_HOME
-
 maven-compile:
     stage: build
     script:
@@ -37,13 +32,3 @@ maven-test:
         paths:
             - target/test-results
         expire_in: 1 day
-
-maven-package:
-    stage: package
-    script:
-        - ./mvnw verify deploy -Pprod -DskipTests -Dmaven.repo.local=$MAVEN_USER_HOME
-    artifacts:
-        paths:
-            - target/*.war
-        expire_in: 1 day
-
