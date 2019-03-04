@@ -23,8 +23,8 @@ spring:
 cloud:
     aws:
         credentials:
-            accessKeyId: AKIAIP5BT7RZXY7PCZ6A
-            secretKey: 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
+            accessKeyId:
+            secretKey: 
         instanceProfile: true
         region:
             static: ap-southeast-1
